@@ -1,5 +1,15 @@
 import datetime
 from ..models import Food
+from callfoodAPI import callFoodAPI
+
+def foodSearch(user_food):
+    cachedFood = getAllFood() # Type = python set
+    if user_food not in cachedFood:
+        foodData = callFoodAPI(user_food)
+        addFood(user_food, foodData)
+    else:
+        foodData = retrieveFood(user_food)
+    return foodData
 
 def getAllFood():
 	food = Food.objects.all()
