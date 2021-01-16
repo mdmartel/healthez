@@ -1,56 +1,97 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8"
 
 <head>
-  <title>Bootstrap 4 Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthez</title>
+
+  <!-- Import Poppins Font-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'default.css' %}">
 </head>
 
 <body>
-    <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">HealthEz</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+  <header id="header">
+    <div>
+      {% load static %}
+      <img id="logo" img src="{% static 'images/healthez_logo.png' %}" alt="healthez logo">
+    </div>
+    <nav id="nav-bar">
+      <ul>
+        <li>
+          <a class="nav-link" href="#Home"><b>Home</b></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <li>
+          <a class="nav-link" href="#About"><b>About</b></a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+    </nav>
+  </header>
+
+
+  <!-- Home -->
+  <section class="s1" id="Home">
+    <div class="main-containerHome">
+      <div class="home-main">
+        <h1>The easy way to be healthy</h1>
+      </div>
+      <div class="get-started">
+        <button class="button"><a href=""><b>Get Started</b></a></button>
+      </div>
+      {% load static %}
+      <img src="{% static 'images/grocery_stock.png' %}" alt="grocery" style="width:100%; height: 100%;">
     </div>
-  </div>
-</nav>
-    </header>
-    
+  </section>
+
+
+  <!-- About -->
+  <section class="s2" id="About">
+    <div class="main-container">
+      <div class="about-main">
+        <h1>WHY?</h1>
+      </div>
+      <div class="about-p">
+        <div class="subtext">
+          <p><i>What can I eat? What can kill me? What is this?</i></p>
+        </div>
+        <p>Life with allergies can be a matter of life or death when anaphylaxis shock is on the line. For every item
+          that enters your mouth, has to be safe to consume. This means reading the microscopic boxes for the keywords
+          that means life or death to you. As those who live and have such allergies, it's a choir. For those who
+          eyesight is failing, it makes shopping a matter of familiarity and makes exploring new things difficult. That
+          is why we created this site to help those who are facing nutritional problems due to allergies.</p>
+      </div>
+
+      <br>
+
+      <div class="about-main">
+        <h1>WHAT DO WE DO?</h1>
+      </div>
+
+      <div class="about-p">
+        <p>Our site helps those with allergies create a nutritionally balanced grocery shopping list that also allows
+          them to check any new items for potential allergens. Simply input the product's name and itll tell you its
+          nutritional and safety information.</p>
+      </div>
+
+      <br>
+
+      <div class="about-main">
+        <h1>WHO WE ARE</h1>
+      </div>
+
+      <div class="about-p">
+        <p>We are a team of passionate programmers who wish to aid those like us who face allergen difficulties in our
+          life.</p>
+      </div>
+    </div>
+  </section>
+
+
 </body>
+
 </html>

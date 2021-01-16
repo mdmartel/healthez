@@ -1,6 +1,6 @@
 import datetime
 from ..models import Food
-from callfoodAPI import callFoodAPI
+from .callFoodAPI import callFoodAPI
 
 def foodSearch(user_food):
     cachedFood = getAllFood() # Type = python set
