@@ -6,15 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   {% load static %}
-  <link rel="stylesheet" href="{% static 'item_style.css' %}">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
   <title>HealthEz</title>
 
   <!-- CSS -->
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'item_style.css' %}">
+  <link rel="stylesheet" type="text/css" href="item_style.css">
 </head>
 
 <body>
@@ -22,16 +20,12 @@
   <!-- NAV BAR-->
   <header id="header">
     <div>
-      {% load static %}
-      <img id="logo" img src="{% static 'images/healthez_logo.png' %}" alt="healthez logo">
+      <img id="logo" src="images/healthez_logo.png" alt="healthez logo">
     </div>
     <nav id="nav-bar">
       <ul>
         <li>
-          <a class="nav-link" href="#Home"><b>Home</b></a>
-        </li>
-        <li>
-          <a class="nav-link" href="#About"><b>About</b></a>
+          <a class="nav-link" href="Input.html"><b>Go back</b></a>
         </li>
       </ul>
     </nav>
@@ -49,6 +43,62 @@
         <!-- PICTURE OF ITEM-->
         <img img src="{{ item.img_url }}" id="myImage" width="231" height="231" alt="{{item.name}} logo">
         <br>
+
+        <img img src="images/grocery_stock.png" id="myImage" width="231" height="231" alt="{{item.name}} logo">
+
+
+        <!-- NAME OF ITEM -->
+        <li>{{ item.title }}</li>
+        <br>
+
+        <!-- ADD BUTTON -->
+        <form action="/addItem/{{item.id}}" style="display:inline;" method="POST">{% csrf_token %}
+          <input type="submit" value="ADD">
+        </form>
+        <br>
+        <br>
+
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="food-item">
+      <ul id="food-list">
+        {% for item in search_items %}
+
+        <!-- PICTURE OF ITEM-->
+        <img img src="{{ item.img_url }}" id="myImage" width="231" height="231" alt="{{item.name}} logo">
+        <br>
+
+        <img img src="images/grocery_stock.png" id="myImage" width="231" height="231" alt="{{item.name}} logo">
+
+
+        <!-- NAME OF ITEM -->
+        <li>{{ item.title }}</li>
+        <br>
+
+        <!-- ADD BUTTON -->
+        <form action="/addItem/{{item.id}}" style="display:inline;" method="POST">{% csrf_token %}
+          <input type="submit" value="ADD">
+        </form>
+        <br>
+        <br>
+
+        {% endfor %}
+      </ul>
+    </div>
+
+
+    <div class="food-item">
+      <ul id="food-list">
+        {% for item in search_items %}
+
+        <!-- PICTURE OF ITEM-->
+        <img img src="{{ item.img_url }}" id="myImage" width="231" height="231" alt="{{item.name}} logo">
+        <br>
+
+        <img img src="images/grocery_stock.png" id="myImage" width="231" height="231" alt="{{item.name}} logo">
+
 
         <!-- NAME OF ITEM -->
         <li>{{ item.title }}</li>
