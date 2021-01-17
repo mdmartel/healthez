@@ -12,7 +12,8 @@
 
   <!-- CSS -->
   {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'default.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'details_style.css' %}">
+  <!--<link rel="stylesheet" type="text/css" href="details_style.css">-->
 </head>
 
 <body>
@@ -22,6 +23,7 @@
     <div>
       {% load static %}
       <img id="logo" img src="{% static 'images/healthez_logo.png' %}" alt="healthez logo">
+      <!--<img id="logo" img src="images/healthez_logo.png" alt="healthez logo">-->
     </div>
     <nav id="nav-bar">
       <ul>
@@ -31,59 +33,95 @@
       </ul>
     </nav>
   </header>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <!-- PICTURE OF ITEM-->
-  <img img src="{{ img_url }}" id="food_image" width="231" height="231" alt="{{item.name}} image">
-  
-  Food item: {{obj.title}}
-  {{obj.description}}
 
-  <ul>
-    Important tags:
-    {% for badge in obj.badges %}
-    <li>
-      {{badge}}
-    </li>
-    {% endfor %}
-  </ul>
+  <div class="info-container">
+    <div class="info">
+      <!-- PICTURE OF ITEM-->
+      <img img src="{{ img_url }}" id="food_image" width="231" height="231" alt="{{item.name}} image"> 
 
-  Calories: {{obj.nutrition.calories}}
-  Caloric breakdown: {{obj.nutrition.caloric_breakdown}}
-  Fat: {{obj.nutrition.fat}}
-  Protein: {{obj.nutrition.protein}}
-  Carbohydrates: {{obj.nutrition.carbs}}
+      <!--<img img src="images/grocery_stock.jpg" id="food_image" width="231" height="231" alt="{{item.name}} image">-->
+    
+      <br>
+      <br>
 
-  <br>
-  <!--Nutrients: {{obj.nutrition.nutrients}}-->
-  Nutrients:
-  <ul>
-    {% for nutrient in obj.nutrition.nutrients %}
-      <li>
-        {{nutrient.title}}
-        {{nutrient.amount}} {{nutrient.unit}}
-        {{nutrient.percentOfDailyNeeds}}
+      <h3>Food Item</h3> 
+      <br>
+      {{obj.title}}
+      <br>
+      {{obj.description}}
+    </div>
+
+    <div class="info bullets">
+      <!-- TAGS -->
+      <h3>Important Tags</h3>
+      <ul>
+        <li>
+        {% for badge in obj.badges %}
       </li>
-    {% endfor %}
-  </ul>
+        <li>
+          {{badge}}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="info">
+      <h3>Calories</h3>
+      {{obj.nutrition.calories}}
+    </div>
+
+    <div class="info">
+      <h3>Caloric breakdown</h3>
+      {{obj.nutrition.caloric_breakdown}}
+      </div>
+
+      <div class="info">
+      <h3>Fat</h3>
+      {{obj.nutrition.fat}}
+      </div>
+
+      <div class="info">
+      <h3>Protein</h3>
+      {{obj.nutrition.protein}}
+    </div>
 
 
-  <ul>
-    Ingredients:
-    {% for ingredient in obj.ingredients %}
-    <li>
-      {{ingredient.name}}
-    </li>
-    {% endfor %}
-  </ul>
+    <div class="info">
+      <h3>Carbohydrates</h3>
+      {{obj.nutrition.carbs}}
+      </div>
+
+
+    <div class="nutrients">
+    <!--Nutrients: {{obj.nutrition.nutrients}}-->
+    <h3>Nutrients</h3>
+    <ul>
+      {% for nutrient in obj.nutrition.nutrients %}
+      <li>
+        {{nutrient.title}}:
+        {{nutrient.amount}} {{nutrient.unit}},
+        {{nutrient.percentOfDailyNeeds}}% Daily Value
+      </li>
+      {% endfor %}
+    </ul>
+
+    </div>
+
+
+
+    <div class ="info bullets">
+    <!-- Ingredients -->
+    <h3>Ingredients</h3>
+    <ul>
+      {% for ingredient in obj.ingredients %}
+      <li>
+        {{ingredient.name}}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  </div>
 
 
 
