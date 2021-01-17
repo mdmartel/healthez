@@ -9,6 +9,8 @@ urlpatterns = [
     path('input/', views.search_test,name='search_test'),
     path('input/lookup', views.run_search,name='run_search'),
     path('form/', views.FormInput),
-    path('addItem/', views.addItem),
-    path('deleteItem/<int:itemID>',views.deleteItem)
+    path('addItem/<int:itemID>', views.addItem),
+    path('deleteItem/<int:itemID>',views.deleteItem),
+    path('itemSelectPage/',views.itemSelectPage),
+    path('selectItem/',views.selectItem),
 ]

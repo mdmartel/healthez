@@ -18,8 +18,8 @@ def getAllFood():
 	return food_types
 
 def addFood(name, data):
-	Food.objects.create(foodType=name, cacheDate=datetime.datetime.now(), data=data)
+	Food.objects.create(foodType=name, cacheDate=datetime.datetime.now(), data=data.json())
 
 def retrieveFood(name):
-	food = Food.objects.get(pk=name)
-	return food
+	food = Food.objects.filter(foodType=name)[0]
+	return food.data

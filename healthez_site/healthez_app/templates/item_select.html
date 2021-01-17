@@ -14,25 +14,15 @@
   </head>
     
      <body>
-         <h1>Create your list</h1>
-         
-      <div class="form">
-        <form action="/itemSelectPage/" method="POST">
-          {% csrf_token %}
-          <input type="text" name="name" autocomplete="off" id="foodInput"required>
-          <input type="submit" id="add">
-          <label for="name" class="label-name" >
-            <span class="content-name">Input</span>
-          </label>
-        </form>
-      </div>
+         <h1>Choose an item to add to your list</h1>
 
       <ul id="Food List">
-        {% for list_item in all_items %}
-        <li>{{ list_item.content }}</li>
-        <form action="/deleteItem/{{list_item.id}}" style="display:inline;" method="POST">{% csrf_token %}
+        {% for item in search_items %}
+        <li>{{ item.title }}</li>
+        <form action="/addItem/{{item.id}}" style="display:inline;" method="POST">{% csrf_token %}
           <input type="submit" value="X">
         </form>
+        <img img src="{{ item.img_url }}" alt="{{item.name}} logo">
         {% endfor %}
       </ul>
     

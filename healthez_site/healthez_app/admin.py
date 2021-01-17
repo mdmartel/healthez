@@ -4,5 +4,8 @@ from django.contrib import admin
 
 from .models import Food
 from .models import listItem
+from .models import searchItem
+
 admin.site.register(Food)
 admin.site.register(listItem)
+admin.site.register(searchItem)
