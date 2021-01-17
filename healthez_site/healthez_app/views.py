@@ -14,6 +14,11 @@ def getItemData(request, itemID):
 	item_to_search = listItem.objects.get(id=itemID)
 
 	foodData = getFoodData(item_to_search.product_id)
+	num_items = len(foodData)
+	divider = int(num_items/3)
+	col1 = foodData[0:divider] 
+	col2 = foodData[divider:divider*2]
+	col3 = foodData[divider*2:]
 	return render(request, "food_data.html", {"foodDataList": foodData})
 
 
