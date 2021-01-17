@@ -53,7 +53,9 @@
 
         <ul id="Food List">
           {% for item in all_items %}
-          <li>{{ item.content }}</li>
+          <a href="/getItemDataPage/{{item.id}}">
+            <li>{{ item.content }}</li>
+          </a>
           <form action="/deleteItem/{{item.id}}" style="display:inline;" method="POST">{% csrf_token %}
           <input type="submit" value="X">
           </form>
