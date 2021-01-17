@@ -62,7 +62,7 @@ def itemSelectPage(request):
 	col1 = all_search_items[0:divider] 
 	col2 = all_search_items[divider:divider*2]
 	col3 = all_search_items[divider*2:]
-	return render(request, 'item_select.html', {"col1":col1}, {"col2":col2}, {"col3":col3})
+	return render(request, 'item_select.html', {"col1":col1,"col2":col2,"col3":col3})
 
 
 def selectItem(request):

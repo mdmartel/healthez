@@ -6,6 +6,7 @@ def callFoodAPI(food):
   key = "34a712a1eab141619467f97f4b4e126c"
   url = "https://api.spoonacular.com/food/products/search?query="
   url += food
+  url += "&number=9"
   url += "&apiKey="
   url += key
 
