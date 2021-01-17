@@ -12,7 +12,7 @@ from .models import searchItem
 
 def getItemData(request, itemID):
 	foodData = getFoodData(itemID)
-	return render(request, )
+	return render(request, "food_data.html", {"foodDataList": foodData})
 
 
 def FormInput(request):
