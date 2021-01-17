@@ -11,7 +11,9 @@ from .models import listItem
 from .models import searchItem
 
 def getItemData(request, itemID):
-	foodData = getFoodData(itemID)
+	item_to_search = listItem.objects.get(id=itemID)
+
+	foodData = getFoodData(item_to_search.product_id)
 	return render(request, "food_data.html", {"foodDataList": foodData})
 
 
@@ -21,13 +23,17 @@ def FormInput(request):
 	return render(request, "Input.html", {"all_items": all_list_items})
 
 def addItem(request, itemID):
-	#new_item = listItem(content = request.POST.get('name', "none"))
-	#new_item.save()
 	item_to_add = searchItem.objects.get(id=itemID)
-
 	name = item_to_add.title
 	product_id = item_to_add.product_id
-	listItem.objects.create(content=name, product_id=product_id)
+	img_url = item_to_add.img_url
+	data = getFoodData(product_id)
+	badges = data['importantBadges']
+	for i in range(len(badges)):
+		badges[i] = badges[i].replace('_', ' ')
+	data['importantBadges'] = badges
+	print(data)
+	listItem.objects.create(content=name, product_id=product_id, img_url=img_url, data=data)
 	return HttpResponseRedirect("/form/")
 
 def deleteItem(request, itemID):

@@ -1,0 +1,166 @@
+/* Set Up Variables */
+
+:root {
+    --mainColor: #00C922;
+    --header-font: 'Poppins', sans-serif;
+    --background-color: #FFFAEB;
+}
+
+/* Base */
+
+html {
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+    background-color: var(--background-color);
+}
+
+a {
+    font-family: var(--header-font);
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+h1 {
+    font-family: var(--header-font);
+    text-align: center;
+}
+
+p {
+    font-family: var(--header-font);
+}
+
+ul {
+    list-style: none
+}
+
+/* HEADER */
+
+#logo {
+    width: 300px;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    background-color: #FFFAEB;
+    border-style: solid;
+    border-bottom-width: 6px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-color: var(--mainColor);
+}
+
+#nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    left: 65%;
+    padding-right: 20px;
+}
+
+.nav-link {
+    color: black;
+    padding-right: 20px;
+    opacity: 1;
+}
+
+.nav-link:hover {
+    color: var(--mainColor);
+    opacity: 1;
+}
+
+#nav-bar>ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+}
+
+
+
+
+
+
+.button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 50px;
+    max-width: 40%;
+    padding: 10px;
+    background: var(--mainColor);
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    font-family: var(--header-font) !important;
+    box-shadow: 5px 10px 18px #0000006e;
+    transition: all .2s ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+.main-containerHome {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.home-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.home-main>h1 {
+    font-size: 60px;
+}
+
+.get-started {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* About */
+
+#About {
+    background-color: var(--background-color);
+}
+
+.main-container {
+    margin: 0 auto;
+    padding-top: 125px;
+    padding-bottom: 125px;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.about-main {
+    font-size: 20px;
+}
+
+.about-p {
+    font-size: 20px;
+    color: rgb(46, 46, 46);
+}
+
+.subtext {
+    text-align: center;
+}

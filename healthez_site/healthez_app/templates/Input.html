@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'gamers.css' %}">
     {% load static %}
     <link rel="stylesheet" href="{% static 'wetrain.css' %}">
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <title>HealthEz</title>
@@ -54,15 +55,33 @@
             </div>
         </form>
         <div class="remove_btn">
+
         <ul id="Food List">
+            
           {% for item in all_items %}
-          <a href="/getItemDataPage/{{list_item.id}}">
+            
+          <!--<a href="/getItemDataPage/{{list_item.id}}">-->
+              
           <li>
             <form action="/deleteItem/{{item.id}}" style="display:inline;" method="POST">{% csrf_token %}
             <input class="special" type="submit" value="X">
             </form>
-          {{ item.content }}</li>
-          </a>
+              
+         <div class="dropdown">  
+             <button class="dropbtn">
+          {{ item.content }}
+                 </button>
+                <div class="dropdown-content">
+                Important food information:
+                {% for data in item.data.importantBadges %}
+                <a href="#">{{data}}</a>
+                {% endfor %}
+              </div>
+              </div>
+              
+              </li>
+              
+          
 
           {% endfor %}
         </ul>
