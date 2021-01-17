@@ -28,8 +28,10 @@
       </div>
 
       <ul id="Food List">
-        {% for list_item in all_items %}
-        <li>{{ list_item.content }}</li>
+        <a href="/getItemDataPage/{{list_item.id}}">
+          {% for list_item in all_items %}
+          <li>{{ list_item.content }}</li>
+        </a>
         <form action="/deleteItem/{{list_item.id}}" style="display:inline;" method="POST">{% csrf_token %}
           <input type="submit" value="X">
         </form>

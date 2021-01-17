@@ -4,10 +4,16 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from .utils import foodDB
+from .utils.getFoodData import getFoodData
 # Create your views here.
 
 from .models import listItem
 from .models import searchItem
+
+def getItemData(request, itemID):
+	foodData = getFoodData(itemID)
+	return render(request, )
+
 
 def FormInput(request):
 	all_list_items = listItem.objects.all()

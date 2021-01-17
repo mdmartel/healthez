@@ -13,4 +13,5 @@ urlpatterns = [
     path('deleteItem/<int:itemID>',views.deleteItem),
     path('itemSelectPage/',views.itemSelectPage),
     path('selectItem/',views.selectItem),
+    path('getItemDataPage',views.getItemData)
 ]
