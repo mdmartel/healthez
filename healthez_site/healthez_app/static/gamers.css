@@ -32,6 +32,7 @@ h3{
     left: 50%;
     transform:translate(-50%, -50%);
     vertical-align: middle;
+    
 }
 
 .main .input_group{
@@ -58,6 +59,7 @@ label{
     cursor: text;
     background: #00C922;
     transition: top 0.2s ease-in-out;
+    border-radius: 25px;
 }
 .active{
     top: -20px
@@ -69,6 +71,7 @@ label{
     border: 2px solid #00C922;
     background: #FFFAEB;
     color: #00C922;
+    border-radius: 25px;
 }
 
 .box:focus{
@@ -87,6 +90,7 @@ label{
     font-size: 16px;
     cursor: pointer;
     transition: 0.8s all;
+    border-radius: 25px;
 }
 .submit_btn:hover{
     background: #FFFAEB;
@@ -185,11 +189,11 @@ letter-spacing: 0px;
 
 
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #00C922;}
+/* Change color of dropdown links on hover 
+.dropdown-content a:hover {background-color: #00C922;}*/
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block; }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #00C922; border: transparent;}
+.dropdown:hover .dropbtn {border-radius: 25px; background-color: #00C922; border: transparent;}

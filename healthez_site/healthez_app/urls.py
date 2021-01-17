@@ -2,6 +2,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 from . import views
 
+
 urlpatterns = [
     #path('', views.index, name='index'),
     path('', views.bootstrap_test,name='bootstrap_test'),
@@ -15,6 +16,7 @@ urlpatterns = [
     path('itemSelectPage/',views.itemSelectPage),
     path('selectItem/',views.selectItem),
     path('getItemDataPage/<int:itemID>',views.getItemData),
+    path('image_upload', views.barcodeImageView),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

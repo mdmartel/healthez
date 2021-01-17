@@ -10,6 +10,25 @@ from .utils.getFoodData import getFoodData
 from .models import listItem
 from .models import searchItem
 
+
+def barcodeImageView(request):
+
+	if request.method == 'POST':
+		form = HotelForm(request.POST, request.FILES) 
+  
+        if form.is_valid(): 
+            form.save() 
+            return redirect('success') 
+    else: 
+        form = barcodeForm() 
+    return render(request, 'barcodeImageForm.html', {'form' : form}) 
+  
+  
+def success(request): 
+    return HttpResponse('successfully uploaded') 
+
+
+
 def getItemData(request, itemID):
 	item_to_get = listItem.objects.get(id=itemID)
 

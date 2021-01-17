@@ -18,3 +18,6 @@ class searchItem(models.Model):
 	title = models.TextField()
 	img_url = models.TextField()
 	product_id = models.TextField()
+
+class barcode(models.Model):
+	barcode_Image = models.ImageField(upload_to='images/')
