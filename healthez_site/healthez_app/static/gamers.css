@@ -73,3 +73,20 @@ label{
     background: #2c3e50;
     color: #fff;
 }
+
+
+.remove_btn{
+    border:2px solid #fff;
+    color: #2c3e50;
+    background: #fff;
+    padding: 15px 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.8s all;
+}
+.remove_btn:hover{
+    background: #2c3e50;
+    color: #fff;
+}

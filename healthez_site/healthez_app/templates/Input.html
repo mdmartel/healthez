@@ -1,0 +1,74 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" >
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'gamers.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap" rel="stylesheet">
+    <title>HealthEz</title>
+    </head>
+<body>
+    <!-- NAV BAR-->
+    <div class="navi">
+      <header id="header">
+        <div>
+          <img id="logo" src="images/healthez_logo.png" alt="healthez logo">
+        </div>
+        <nav id="nav-bar">
+          <ul>
+            <li>
+              <a class="nav-link" href="#Home"><b>Home</b></a>
+            </li>
+            <li>
+              <a class="nav-link" href="#About"><b>About</b></a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+        </div>
+
+    <div class="main">
+        <h1>Choose an item to add to your list</h1>
+        
+
+
+
+        <form action="/itemSelectPage/" method="POST" style="display:inline;">
+            {% csrf_token %}
+            <div class="input_group">
+                <label for = "FirstName">Search</label>
+                <input type="text" name="name" class="box" id="foodInput"required>
+            </div>
+            <div class="input_group">
+                <input type="submit" name="" class="submit_btn" value="Submit">
+            </div>
+        </form>
+
+        <ul id="Food List">
+          {% for item in all_items %}
+          <li>{{ item.content }}</li>
+          <form action="/deleteItem/{{item.id}}" style="display:inline;" method="POST">{% csrf_token %}
+          <input type="submit" value="X">
+          </form>
+          {% endfor %}
+        </ul>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+            $(".box").on("focusin", function(){
+            $(this).parent().find("label").addClass("active");
+            });
+
+        $(".box").on("focusout", function(){
+            if (!this.value){
+            $(this).parent().find("label").removeClass("active");
+    }
+            });
+    </script>
+    </body>
+</html>
