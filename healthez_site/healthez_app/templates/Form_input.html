@@ -17,15 +17,24 @@
          <h1>Create your list</h1>
          
       <div class="form">
-        <form action="lookup" method="POST">
+        <form action="/addItem/" method="POST">
           {% csrf_token %}
-          <input type="text" name="name" autocomplete="off" required>
-          <input type="submit">
+          <input type="text" name="name" autocomplete="off" id="foodInput"required>
+          <input type="submit" id="add">
           <label for="name" class="label-name" >
             <span class="content-name">Input</span>
           </label>
         </form>
       </div>
+
+      <ul id="Food List">
+        {% for list_item in all_items %}
+        <li>{{ list_item.content }}</li>
+        <form action="/deleteItem/{{list_item.id}}" style="display:inline;" method="POST">{% csrf_token %}
+          <input type="submit" value="X">
+        </form>
+        {% endfor %}
+      </ul>
     
 
     
