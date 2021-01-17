@@ -11,7 +11,9 @@ from .models import listItem
 from .models import searchItem
 
 def getItemData(request, itemID):
-	foodData = getFoodData(itemID)
+	item_to_search = listItem.objects.get(id=itemID)
+
+	foodData = getFoodData(item_to_search.product_id)
 	return render(request, "food_data.html", {"foodDataList": foodData})
 
 
@@ -27,7 +29,9 @@ def addItem(request, itemID):
 
 	name = item_to_add.title
 	product_id = item_to_add.product_id
-	listItem.objects.create(content=name, product_id=product_id)
+	img_url = item_to_add.img_url
+	data = getFoodData(product_id)
+	listItem.objects.create(content=name, product_id=product_id, img_url=img_url, data=data)
 	return HttpResponseRedirect("/form/")
 
 def deleteItem(request, itemID):

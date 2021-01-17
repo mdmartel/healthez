@@ -11,6 +11,8 @@ class Food(models.Model):
 class listItem(models.Model):
 	content = models.TextField()
 	product_id = models.TextField()
+	img_url = models.TextField()
+	data = JSONField()
 
 class searchItem(models.Model):
 	title = models.TextField()
