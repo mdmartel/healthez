@@ -1,0 +1,91 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+  <title>HealthEz</title>
+
+  <!-- CSS -->
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'default.css' %}">
+</head>
+
+<body>
+
+  <!-- NAV BAR-->
+  <header id="header">
+    <div>
+      {% load static %}
+      <img id="logo" img src="{% static 'images/healthez_logo.png' %}" alt="healthez logo">
+    </div>
+    <nav id="nav-bar">
+      <ul>
+        <li>
+          <a class="nav-link" href="../form"><b>Go back</b></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  
+  Food item: {{obj.title}}
+  {{obj.description}}
+
+  <ul>
+    Important tags:
+    {% for badge in obj.badges %}
+    <li>
+      {{badge}}
+    </li>
+    {% endfor %}
+  </ul>
+
+  Calories: {{obj.nutrition.calories}}
+  Caloric breakdown: {{obj.nutrition.caloric_breakdown}}
+  Fat: {{obj.nutrition.fat}}
+  Protein: {{obj.nutrition.protein}}
+  Carbohydrates: {{obj.nutrition.carbs}}
+
+  <br>
+  <!--Nutrients: {{obj.nutrition.nutrients}}-->
+  Nutrients:
+  <ul>
+    {% for nutrient in obj.nutrition.nutrients %}
+      <li>
+        {{nutrient.title}}
+        {{nutrient.amount}} {{nutrient.unit}}
+        {{nutrient.percentOfDailyNeeds}}
+      </li>
+    {% endfor %}
+  </ul>
+
+
+  <ul>
+    Ingredients:
+    {% for ingredient in obj.ingredients %}
+    <li>
+      {{ingredient.name}}
+    </li>
+    {% endfor %}
+  </ul>
+
+
+
+</body>
+
+</html>

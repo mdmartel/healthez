@@ -11,10 +11,11 @@ from .models import listItem
 from .models import searchItem
 
 def getItemData(request, itemID):
-	item_to_search = listItem.objects.get(id=itemID)
+	item_to_get = listItem.objects.get(id=itemID)
 
-	foodData = getFoodData(item_to_search.product_id)
-	return render(request, "food_data.html", {"foodDataList": foodData})
+	#foodData = getFoodData(item_to_search.product_id)
+	print(item_to_get.data['nutrition'])
+	return render(request, "details.html", {"obj": item_to_get.data})
 
 
 def FormInput(request):

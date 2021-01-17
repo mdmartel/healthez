@@ -14,7 +14,7 @@ urlpatterns = [
     path('deleteItem/<int:itemID>',views.deleteItem),
     path('itemSelectPage/',views.itemSelectPage),
     path('selectItem/',views.selectItem),
-    path('getItemDataPage',views.getItemData)
+    path('getItemDataPage/<int:itemID>',views.getItemData),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

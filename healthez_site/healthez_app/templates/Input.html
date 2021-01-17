@@ -60,8 +60,8 @@
             
           {% for item in all_items %}
             
-          <!--<a href="/getItemDataPage/{{list_item.id}}">-->
-              
+          <a href="/getItemDataPage/{{item.id}}">
+            
           <li>
             <form action="/deleteItem/{{item.id}}" style="display:inline;" method="POST">{% csrf_token %}
             <input class="special" type="submit" value="X">

@@ -23,6 +23,20 @@ def retrieveFood(name):
 	food = Food.objects.filter(foodType=name)[0]
 	return food.data
 
+def extractDetails(listItem_obj):
+	title = listItem_obj['title']
+	badges = listItem_obj['importantBadges']
+	ingredients = listItem_obj['ingredients']
+	nutrition = listItem_obj['nutrition']
+	description = listItem_obj['description']
+
+	nutrients = nutrition['nutrients']
+	calories = nutrition['calories']
+	caloric_breakdown = nutrition['caloric_breakdown']
+	fat = nutrition['fat']
+	protein = nutrition['protein']
+	carbs = nutrition['carbs']
+
 '''
 def getAllData():
 	food = listItem.objects.all()
