@@ -13,7 +13,8 @@
   <title>HealthEz</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="item_style.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'item_style.css' %}">
 </head>
 
 <body>
@@ -21,7 +22,8 @@
   <!-- NAV BAR-->
   <header id="header">
     <div>
-      <img id="logo" src="images/healthez_logo.png" alt="healthez logo">
+      {% load static %}
+      <img id="logo" img src="{% static 'images/healthez_logo.png' %}" alt="healthez logo">
     </div>
     <nav id="nav-bar">
       <ul>
@@ -41,27 +43,27 @@
   <div class="food-list-container">
 
     <div class="food-item">
-    <ul id="food-list">
-      {% for item in search_items %}
+      <ul id="food-list">
+        {% for item in search_items %}
 
-      <!-- PICTURE OF ITEM-->
-      <img img src="{{ item.img_url }}" alt="{{item.name}} logo">
-      <br>
+        <!-- PICTURE OF ITEM-->
+        <img img src="{{ item.img_url }}" id="myImage" width="231" height="231" alt="{{item.name}} logo">
+        <br>
 
-      <!-- NAME OF ITEM -->
-      <li>{{ item.title }}</li>
-      <br>
+        <!-- NAME OF ITEM -->
+        <li>{{ item.title }}</li>
+        <br>
 
-      <!-- ADD BUTTON -->
-      <form action="/addItem/{{item.id}}" style="display:inline;" method="POST">{% csrf_token %}
-        <input type="submit" value="ADD">
-      </form>
-      <br>
-      <br>
+        <!-- ADD BUTTON -->
+        <form action="/addItem/{{item.id}}" style="display:inline;" method="POST">{% csrf_token %}
+          <input type="submit" value="ADD">
+        </form>
+        <br>
+        <br>
 
-      {% endfor %}
-    </ul>
-  </div>
+        {% endfor %}
+      </ul>
+    </div>
 
   </div>
 </body>

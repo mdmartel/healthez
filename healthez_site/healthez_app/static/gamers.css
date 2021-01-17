@@ -1,11 +1,11 @@
 *{
     font-family: 'Poppins', sans-serif;
-    letter-spacing: 3px;
+    letter-spacing: 0px;
 }
 
 body{
-    color: #fff;
-    background: #2c3e50;
+    color: black;
+    background: #FFFAEB;
 }
 
 h1{
@@ -30,14 +30,21 @@ h1{
     margin: 30px 0;
 }
 
+.submit_btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 label{
     position: absolute;
+    color: white;
     top: 0;
     font-size: 16px;
     margin: 10px;
     padding: 0 10px;
     cursor: text;
-    background:#2c3e50;
+    background: #00C922;
     transition: top 0.2s ease-in-out;
 }
 .active{
@@ -47,9 +54,9 @@ label{
 .box{
     width: 100%;
     padding: 12px 10px;
-    border: 2px solid #fff;
-    background: #2c3e50;
-    color: #fff;
+    border: 2px solid #00C922;
+    background: #FFFAEB;
+    color: #00C922;
 }
 
 .box:focus{
@@ -59,9 +66,9 @@ label{
     height 100px;
 }
 .submit_btn{
-    border:2px solid #fff;
-    color: #2c3e50;
-    background: #fff;
+    border:2px solid #00C922;
+    color: white;
+    background: #00C922;
     padding: 15px 50px;
     text-transform: uppercase;
     font-weight: bold;
@@ -70,11 +77,12 @@ label{
     transition: 0.8s all;
 }
 .submit_btn:hover{
-    background: #2c3e50;
-    color: #fff;
+    background: #FFFAEB;
+    color: black;
+    border: 2px solid #00C922;
 }
 
-
+/*
 .remove_btn{
     border:transparent;
     color: transparent;
@@ -88,3 +96,20 @@ label{
     background: red;
     color: #fff;
 }
+*/
+
+.special{
+    color:#00C922;
+    background: transparent;
+    border: #00C922;;
+    font-size: 20px;
+    border-radius: 25px;
+    
+}
+
+.special:hover{
+    background: #E71D36;
+    color: #fff;
+}
+
+

@@ -7,10 +7,9 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'gamers.css' %}">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'default.css' %}">
-
+    <link rel="stylesheet" href="{% static 'wetrain.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <title>HealthEz</title>
     </head>
 <body>
@@ -18,8 +17,8 @@
     <div class="navi">
       <header id="header">
         <div>
-      {% load static %}
-      <img id="logo" img src="{% static 'images/healthez_logo.png' %}" alt="healthez logo">
+            {% load static %}
+            <img id="logo" img src="{% static 'images/healthez_logo.png' %}" alt="healthez logo">
         </div>
         <nav id="nav-bar">
           <ul>
@@ -35,6 +34,10 @@
         </div>
 
     <div class="main">
+        <br>
+        <br>
+        <br>
+        <br>
         <h1>Choose an item to add to your list</h1>
         
 
@@ -50,15 +53,20 @@
                 <input type="submit" name="" class="submit_btn" value="Submit">
             </div>
         </form>
-
+        <div class="remove_btn">
         <ul id="Food List">
           {% for item in all_items %}
-          <li>{{ item.content }}</li>
-          <form action="/deleteItem/{{item.id}}" style="display:inline;" method="POST">{% csrf_token %}
-          <input type="submit" value="X">
-          </form>
+          <a href="/getItemDataPage/{{list_item.id}}">
+          <li>
+            <form action="/deleteItem/{{item.id}}" style="display:inline;" method="POST">{% csrf_token %}
+            <input class="special" type="submit" value="X">
+            </form>
+          {{ item.content }}</li>
+          </a>
+
           {% endfor %}
         </ul>
+            </div>
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
