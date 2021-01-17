@@ -28,10 +28,18 @@ def addItem(request, itemID):
 	product_id = item_to_add.product_id
 	img_url = item_to_add.img_url
 	data = getFoodData(product_id)
+
+	# Remove underscores from important badges
 	badges = data['importantBadges']
 	for i in range(len(badges)):
 		badges[i] = badges[i].replace('_', ' ')
 	data['importantBadges'] = badges
+
+	# Remove underscores from badges
+	badges = data['badges']
+	for i in range(len(badges)):
+		badges[i] = badges[i].replace('_', ' ')
+	data['badges'] = badges
 	print(data)
 	listItem.objects.create(content=name, product_id=product_id, img_url=img_url, data=data)
 	return HttpResponseRedirect("/form/")
