@@ -123,4 +123,5 @@ STATIC_URL = '/static/'
 # Media
 #MEDIA_ROOT = BASE_DIR.child('media')
 #MEDIA_URL = '/media/'
-#STATIC_ROOT = BASE_DIR.child('staticfiles')
+STATIC_ROOT = 'C:/Users/User/Desktop/Hackathons/HackDavis2021/healthez_site/static_root'
+STATICFILES_DIRS = ('C:/Users/User/Desktop/Hackathons/HackDavis2021/healthez_site/healthez_app/static',)

@@ -14,7 +14,6 @@ def foodSearch(user_food):
 def getAllFood():
 	food = Food.objects.all()
 	food_types = set((obj.foodType for obj in food))
-	print(food_types)
 	return food_types
 
 def addFood(name, data):
@@ -23,3 +22,22 @@ def addFood(name, data):
 def retrieveFood(name):
 	food = Food.objects.filter(foodType=name)[0]
 	return food.data
+
+'''
+def getAllData():
+	food = listItem.objects.all()
+	food_types = set((obj.foodType for obj in food))
+	return food_types
+
+def retrieveData(name):
+	food = listItem.objects.filter(content=name)[0]
+	return food.data
+
+def foodDataSearch(food_name):
+    cachedData = getAllData() # Type = python set
+    if food_name not in cachedData:
+    	return None
+    else:
+        foodData = retrieveFood(user_food)
+    return foodData
+'''

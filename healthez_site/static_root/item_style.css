@@ -1,0 +1,135 @@
+/* Set Up Variables */
+
+:root {
+    --mainColor: #00C922;
+    --background-color: #FFFAEB;
+}
+
+/* Base */
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+    background-color: var(--background-color);
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* HEADER */
+
+#logo {
+    width: 300px;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    background-color: #FFFAEB;
+    border-style: solid;
+    border-bottom-width: 6px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-color: var(--mainColor);
+}
+
+#nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    left: 72%;
+    padding-right: 20px;
+}
+
+.nav-link {
+    color: black;
+    padding-right: 20px;
+    opacity: 1;
+}
+
+.nav-link:hover {
+    color: var(--mainColor);
+    opacity: 1;
+}
+
+#nav-bar>ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+}
+
+/* FOOD LIST */
+
+#food-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 50px;
+    max-width: 40%;
+    padding: 10px;
+    background: var(--mainColor);
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    transition: all .2s ease-in-out;
+}
+
+.food-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 50px;
+}
+
+.food-item {
+    padding-bottom: 100px;
+}
+
+#food-list>img {
+    border-radius: 50%;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 1920px) {
+    #nav-bar {
+        width: 90%;
+        left: 0;
+    }
+}

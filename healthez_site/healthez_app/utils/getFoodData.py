@@ -6,7 +6,7 @@ def getFoodData(foodId):
     key = "34a712a1eab141619467f97f4b4e126c"
     url = "https://api.spoonacular.com/food/products/"
     url += foodId
-    url += "&apiKey="
+    url += "?apiKey="
     url += key
 
     response = requests.get(url)
@@ -29,4 +29,4 @@ def getFoodData(foodId):
     else:
     # If response code is not ok (200), prt the resulting http error code with description
         response.raise_for_status()
-    return response
+    return response.json()
