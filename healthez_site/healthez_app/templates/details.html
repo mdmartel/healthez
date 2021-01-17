@@ -44,81 +44,87 @@
       <br>
       <br>
 
-      <h3>Food Item</h3> 
-      <br>
-      {{obj.title}}
+      <h3>{{obj.title}}</h3> 
+      
       <br>
       {{obj.description}}
     </div>
 
-    <div class="info bullets">
+    <div class="info">
       <!-- TAGS -->
       <h3>Important Tags</h3>
+      <p>
+        {% for badge in obj.badges %}
+          {{badge}}, &nbsp;
+        {% endfor %}
+      </p>
+    </div>
+
+    <div class="info horizontal">
       <ul>
         <li>
-        {% for badge in obj.badges %}
-      </li>
-        <li>
-          {{badge}}
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-
-    <div class="info">
       <h3>Calories</h3>
       {{obj.nutrition.calories}}
-    </div>
-
-    <div class="info">
-      <h3>Caloric breakdown</h3>
-      {{obj.nutrition.caloric_breakdown}}
-      </div>
-
-      <div class="info">
+    </li>
+    <li>
       <h3>Fat</h3>
       {{obj.nutrition.fat}}
-      </div>
-
-      <div class="info">
+    </li>
+    <li>
       <h3>Protein</h3>
       {{obj.nutrition.protein}}
-    </div>
-
-
-    <div class="info">
+      </li>
+    <li>
       <h3>Carbohydrates</h3>
       {{obj.nutrition.carbs}}
-      </div>
+    </li>
+    </ul>
+    </div>
 
+    
+    <div class="info">
+      <h3>Caloric breakdown</h3>
+      <ul>
+      <li>
+        {{obj.nutrition.caloricBreakdown.percentProtein}}% Protein 
+      </li>
+      <li>
+        {{obj.nutrition.caloricBreakdown.percentFat}}% Fat
+      </li>
+      <li>
+        {{obj.nutrition.caloricBreakdown.percentCarbs}}% Carbs
+      </li>
+    </ul>
+  </div>
 
     <div class="nutrients">
+    <div class="info">
     <!--Nutrients: {{obj.nutrition.nutrients}}-->
     <h3>Nutrients</h3>
-    <ul>
+    <div class="left">
+    <p>
       {% for nutrient in obj.nutrition.nutrients %}
-      <li>
-        {{nutrient.title}}:
+      
+        {{nutrient.title}}:&nbsp;&nbsp;
         {{nutrient.amount}} {{nutrient.unit}},
-        {{nutrient.percentOfDailyNeeds}}% Daily Value
-      </li>
+        {{nutrient.percentOfDailyNeeds}}% DV
+        <br>
       {% endfor %}
-    </ul>
-
+    </p>
+    </div>
+    </div>
     </div>
 
 
 
-    <div class ="info bullets">
+    <div class ="info">
     <!-- Ingredients -->
     <h3>Ingredients</h3>
-    <ul>
+    <p>
       {% for ingredient in obj.ingredients %}
-      <li>
-        {{ingredient.name}}
-      </li>
+        {{ingredient.name}},
       {% endfor %}
-    </ul>
+    </p>
   </div>
 
   </div>
