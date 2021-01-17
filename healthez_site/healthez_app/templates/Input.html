@@ -33,15 +33,12 @@
         </nav>
       </header>
         </div>
-
+        <br>
+        <br>
+      <h1>Choose an item to add to your list</h1>
+      <br>
+      <h3>Click on an item to see more details</h3>
     <div class="main">
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1>Choose an item to add to your list</h1>
-        
-
 
 
         <form action="/itemSelectPage/" method="POST" style="display:inline;">
@@ -72,16 +69,16 @@
           {{ item.content }}
                  </button>
                 <div class="dropdown-content">
-                Important food information:
+                
                 {% for data in item.data.importantBadges %}
-                <a href="#">{{data}}</a>
+                <a href="#">{{data}},</a>
                 {% endfor %}
               </div>
               </div>
               
               </li>
               
-          
+          <br>
 
           {% endfor %}
         </ul>
