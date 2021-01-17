@@ -14,11 +14,6 @@ def getItemData(request, itemID):
 	item_to_search = listItem.objects.get(id=itemID)
 
 	foodData = getFoodData(item_to_search.product_id)
-	num_items = len(foodData)
-	divider = int(num_items/3)
-	col1 = foodData[0:divider] 
-	col2 = foodData[divider:divider*2]
-	col3 = foodData[divider*2:]
 	return render(request, "food_data.html", {"foodDataList": foodData})
 
 
@@ -62,7 +57,12 @@ def itemSelectPage(request):
 		item_product_id = item_info["id"]
 		searchItem.objects.create(title=item_name, img_url=item_img_url, product_id=item_product_id)
 	all_search_items = searchItem.objects.all()
-	return render(request, 'item_select.html', {"search_items":all_search_items})
+	num_items = len(all_search_items)
+	divider = int(num_items/3)
+	col1 = all_search_items[0:divider] 
+	col2 = all_search_items[divider:divider*2]
+	col3 = all_search_items[divider*2:]
+	return render(request, 'item_select.html', {"col1":col1}, {"col2":col2}, {"col3":col3})
 
 
 def selectItem(request):
