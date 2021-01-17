@@ -17,7 +17,8 @@ def getItemData(request, itemID):
 
 def FormInput(request):
 	all_list_items = listItem.objects.all()
-	return render(request, "Form_input.html", {"all_items": all_list_items})
+	print(all_list_items)
+	return render(request, "Input.html", {"all_items": all_list_items})
 
 def addItem(request, itemID):
 	#new_item = listItem(content = request.POST.get('name', "none"))

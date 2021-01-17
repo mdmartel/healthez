@@ -1,0 +1,144 @@
+/* Set Up Variables */
+
+:root {
+    --mainColor: #00C922;
+    --header-font: 'Poppins', sans-serif;
+    --background-color: #FFFAEB;
+}
+
+/* Base */
+
+html {
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+    background-color: var(--background-color);
+}
+
+a {
+    font-family: var(--header-font);
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+h1 {
+    font-family: var(--header-font);
+    text-align: center;
+    padding-top: 50px;
+}
+
+p {
+    font-family: var(--header-font);
+}
+
+/* HEADER */
+
+#logo {
+    width: 300px;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    background-color: #FFFAEB;
+    border-style: solid;
+    border-bottom-width: 6px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-color: var(--mainColor);
+}
+
+#nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    left: 72%;
+    padding-right: 20px;
+}
+
+.nav-link {
+    color: black;
+    padding-right: 20px;
+    font-family: var(--header-font);
+    opacity: 1;
+}
+
+.nav-link:hover {
+    color: var(--mainColor);
+    opacity: 1;
+}
+
+#nav-bar>ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+}
+
+/* FOOD LIST */
+
+#Food-List {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 50px;
+    max-width: 40%;
+    padding: 10px;
+    background: var(--mainColor);
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    font-family: var(--header-font);
+    box-shadow: 5px 10px 18px #0000006e;
+    transition: all .2s ease-in-out;
+}
+
+.food-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 1800px) {
+    #nav-bar {
+        width: 90%;
+        left: 0;
+    }
+}
+
+.item_style{
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 3px;
+    
+}
+
+.food{
+    max-width: 100%;
+  height: auto;
+    border-radius: 50%;
+}
