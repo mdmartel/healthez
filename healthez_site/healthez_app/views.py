@@ -14,8 +14,7 @@ def getItemData(request, itemID):
 	item_to_get = listItem.objects.get(id=itemID)
 
 	#foodData = getFoodData(item_to_search.product_id)
-	print(item_to_get.data['nutrition'])
-	return render(request, "details.html", {"obj": item_to_get.data})
+	return render(request, "details.html", {"obj": item_to_get.data, 'img_url':item_to_get.img_url})
 
 
 def FormInput(request):
