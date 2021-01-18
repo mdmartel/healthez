@@ -21,6 +21,10 @@ def retrieveCode(name):
   code = barcodeResult.objects.filter(barcode=name)[0]
   return code.data
 
+def retrieveCodeObj(name):
+  code = barcodeResult.objects.filter(barcode=name)[0]
+  return code
+
 def barcodeSearch(user_code):
     cachedCodes = getAllBarcodes() # Type = python set
     if user_code not in cachedCodes:

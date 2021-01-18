@@ -17,6 +17,8 @@ urlpatterns = [
     path('selectItem/',views.selectItem),
     path('getItemDataPage/<int:itemID>',views.getItemData),
     path('image_upload', views.barcodeImageView),
+    path('addItemBarcode/<int:itemID>', views.addItemBarcode),
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()

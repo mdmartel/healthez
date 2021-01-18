@@ -12,10 +12,13 @@
 
   <!-- CSS -->
   {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'default.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'default2.css' %}">
+
 </head>
 
 <body>
+
+  <!-- NAV BAR -->
   <header id="header">
     <div>
       {% load static %}
@@ -37,14 +40,27 @@
   <!-- Home -->
   <section class="s1" id="Home">
     <div class="main-containerHome">
-      <div class="home-main">
-        <h1>The easy way to be healthy</h1>
-      </div>
-      <div class="get-started">
-        <button class="button"><a href="../form"><b>Get Started</b></a></button>
+      <div class="button-column">
+        <div class="home-main">
+          <h1>The easy way to be healthy</h1>
+        </div>
+
+        <div class="buttons">
+
+          <div class="create-list">
+            <button class="button"><a href="form"><b>Item Search</b></a></button>
+          </div>
+
+          <br>
+
+          <div class="upload-image">
+            <button class="button"><a href="image_upload"><b>Upload Image</b></a></button>
+          </div>
+
+        </div>
       </div>
       {% load static %}
-      <img src="{% static 'images/grocery_stock.png' %}" alt="grocery" style="width:100%; height: 100%;">
+      <img id="logo" img src="{% static 'images/grocery_stock.png' %}" alt="grocery" style="width:100%; height: 100%;">
     </div>
   </section>
 
@@ -59,34 +75,59 @@
         <div class="subtext">
           <p><i>What can I eat? What can kill me? What is this?</i></p>
         </div>
-        <p>Life with allergies can be a matter of life or death when anaphylaxis shock is on the line. For every item
-          that enters your mouth, has to be safe to consume. This means reading the microscopic boxes for the keywords
-          that means life or death to you. As those who live and have such allergies, it's a choir. For those who
-          eyesight is failing, it makes shopping a matter of familiarity and makes exploring new things difficult. That
-          is why we created this site to help those who are facing nutritional problems due to allergies.</p>
+        <br>
+        <p>Life with health conditions, such as allergies, can be a matter of life or death. One has to make sure every
+          item
+          that enters their mouth is safe to consume. This means reading the microscopic cardboard boxes for the
+          allergens, which can be quite the task for some people, such as the elderly.
+          For those whose eyesight is failing, it makes shopping a matter of familiarity and makes exploring new things
+          difficult. The purpose of this site is to help people look-up important
+          nutritional information of food products with ease so they don't have to worry about consuming
+          potentially-dangerous foods.</p>
       </div>
 
+      <br>
+      <br>
       <br>
 
       <div class="about-main">
         <h1>WHAT DO WE DO?</h1>
       </div>
+      <br>
 
       <div class="about-p">
-        <p>Our site helps those with allergies create a nutritionally balanced grocery shopping list that also allows
-          them to check any new items for potential allergens. Simply input the product's name and itll tell you its
-          nutritional and safety information.</p>
+        <p>Our site helps those with health conditions create a nutritionally balanced grocery shopping list by
+          displaying the food product's nutritional information in a clear and concise manner.</p>
+
+        <br>
+
+        <div style="text-align: center;" <p>There are 2 ways to look-up a food item: </p>
+        </div>
+
+        <br>
+
+        <p><b>Search up the name:</b> Simply input the item's name (or a category of food) into the search bar and it'll
+          display its
+          nutritional and safety information. You can then add the product to the list.</p>
+
+        <br>
+
+        <p><b>Upload image:</b> You can upload an image of an item with it's barcode included. You can then add the
+          product to the list. </p>
+
       </div>
 
+      <br>
+      <br>
       <br>
 
       <div class="about-main">
         <h1>WHO WE ARE</h1>
       </div>
+      <br>
 
       <div class="about-p">
-        <p>We are a team of passionate programmers who wish to aid those like us who face allergen difficulties in our
-          life.</p>
+        <p>We are a team of passionate programmers who wish to aid people with health conditions, such as allergies.</p>
       </div>
     </div>
   </section>

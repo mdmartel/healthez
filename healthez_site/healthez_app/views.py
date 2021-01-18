@@ -8,6 +8,7 @@ from .utils.getFoodData import getFoodData
 from .utils.callUPCAPI import readBarcode
 from .utils.callUPCAPI import callUPCAPI
 from .utils.callUPCAPI import barcodeSearch
+from .utils.callUPCAPI import retrieveCodeObj
 # Create your views here.
 
 from .models import listItem
@@ -17,7 +18,8 @@ from .forms import barcodeForm
 
 
 def barcodeImageView(request):
-
+	data = None
+	img_url = None
 	if request.method == 'POST':
 		form = barcodeForm(request.POST, request.FILES) 
 		if form.is_valid(): 
@@ -31,17 +33,29 @@ def barcodeImageView(request):
 				else:
 					api_result = callUPCAPI(UPC_code)
 					barcodeResult.objects.create(barcode=UPC_code, data=api_result)
-			print(api_result)
+			data = api_result['products'][0]
+			img_url = data['images'][0]
+			print(api_result['products'])
+			print(api_result['products'][0]['product_name'])
+			print(api_result['products'][0]['images'])
 		else: 
 			form = barcodeForm() 
 			pass
-		return render(request, 'images.html', {'form' : form}) 
-	return render(request, 'images.html') 
+		if data == None:
+			return render(request, 'images.html', {'form' : form}) 
+		else:
+			obj = retrieveCodeObj(UPC_code)
+			return render(request, 'images_result.html', {'form' : form, 'data':data, 'img_url':img_url, 'item':obj}) 
+	return render(request, 'images.html', data) 
   
-  
-def success(request): 
-    return HttpResponse('successfully uploaded') 
+def addItemBarcode(request, itemID):
+	item_to_add = barcodeResult.objects.get(id=itemID).data['products'][0]
+	name = item_to_add['product_name']
+	product_id = -1
+	img_url = item_to_add['images'][0]
 
+	listItem.objects.create(content=name, product_id=product_id, img_url=img_url, data=item_to_add)
+	return HttpResponseRedirect("/form/")
 
 
 def getItemData(request, itemID):
