@@ -5,23 +5,29 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from .utils import foodDB
 from .utils.getFoodData import getFoodData
+from .utils.callUPCAPI import readBarcode
+from .utils.callUPCAPI import callUPCAPI
 # Create your views here.
 
 from .models import listItem
 from .models import searchItem
+from .forms import barcodeForm
 
 
 def barcodeImageView(request):
 
 	if request.method == 'POST':
-		form = HotelForm(request.POST, request.FILES) 
-  
-        if form.is_valid(): 
-            form.save() 
-            return redirect('success') 
-    else: 
-        form = barcodeForm() 
-    return render(request, 'barcodeImageForm.html', {'form' : form}) 
+		form = barcodeForm(request.POST, request.FILES) 
+		if form.is_valid(): 
+			form.save()
+			UPC_code = readBarcode(form.barcode_Image)
+			api_result = callUPCAPI(UPC_code)
+			print(api_result)
+		else: 
+			form = barcodeForm() 
+			pass
+		return render(request, 'images.html', {'form' : form}) 
+	return render(request, 'images.html') 
   
   
 def success(request): 

@@ -21,3 +21,7 @@ class searchItem(models.Model):
 
 class barcode(models.Model):
 	barcode_Image = models.ImageField(upload_to='images/')
+
+class barcodeResult(models.Model):
+	barcode = models.TextField()
+	data = JSONField()
