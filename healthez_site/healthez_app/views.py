@@ -7,10 +7,12 @@ from .utils import foodDB
 from .utils.getFoodData import getFoodData
 from .utils.callUPCAPI import readBarcode
 from .utils.callUPCAPI import callUPCAPI
+from .utils.callUPCAPI import barcodeSearch
 # Create your views here.
 
 from .models import listItem
 from .models import searchItem
+from .models import barcodeResult
 from .forms import barcodeForm
 
 
@@ -20,8 +22,15 @@ def barcodeImageView(request):
 		form = barcodeForm(request.POST, request.FILES) 
 		if form.is_valid(): 
 			form.save()
-			UPC_code = readBarcode(form.barcode_Image)
-			api_result = callUPCAPI(UPC_code)
+			print(form.__dict__)
+			UPC_code = readBarcode(form.instance.barcode_Image)
+			if UPC_code:
+				cached = barcodeSearch(UPC_code)
+				if cached:
+					api_result = cached 
+				else:
+					api_result = callUPCAPI(UPC_code)
+					barcodeResult.objects.create(barcode=UPC_code, data=api_result)
 			print(api_result)
 		else: 
 			form = barcodeForm() 
